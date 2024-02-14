@@ -1,0 +1,25 @@
+{
+	"manifest_version": 3,
+	"name": "amfauth",
+	"version": "1.0",
+	"permissions": ["activeTab", "tabs", "scripting", "storage"],
+	"background": {
+		"scripts": ["popup.js"]
+	},
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "images/icon-16.png",
+			"48": "images/icon-48.png",
+			"128": "images/icon-128.png"
+		}
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"]
+		}
+	],
+	"popup": {
+		"page": "popup.html"
+	}
+}
