@@ -4,7 +4,8 @@
 	"version": "1.0",
 	"permissions": ["activeTab", "tabs", "scripting", "storage"],
 	"background": {
-		"scripts": ["popup.js"]
+		"scripts": ["dist/background.bundle.js"],
+		"persistent": false
 	},
 	"action": {
 		"default_popup": "popup.html",
@@ -18,8 +19,5 @@
 		{
 			"matches": ["<all_urls>"]
 		}
-	],
-	"popup": {
-		"page": "popup.html"
-	}
+	]
 }

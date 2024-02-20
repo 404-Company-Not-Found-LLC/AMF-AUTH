@@ -1,15 +1,11 @@
 document.getElementById('myButton').addEventListener('click', function () {
 	var inputValue = document.getElementById('myInput').value;
-	// Ensure you're using the browser API correctly. For Chrome, it should be chrome.storage.local.
 	browser.storage.local.set({ key: inputValue });
 	displayStoredValue();
 });
 
-// Function to retrieve and display the stored value
 function displayStoredValue() {
-	// Again, ensure correct API usage. For Chrome, it should be chrome.storage.local.
 	browser.storage.local.get('key', function (result) {
-		// Check if the key exists
 		if (result.key !== undefined) {
 			document.getElementById('displayKeyValue').textContent = result.key;
 		} else {
@@ -19,5 +15,21 @@ function displayStoredValue() {
 	});
 }
 
-// Call the function when the popup is opened
 document.addEventListener('DOMContentLoaded', displayStoredValue);
+
+// popup.js
+document.getElementById('testCode').addEventListener('click', function () {
+	browser.runtime
+		.sendMessage({ action: 'generateOTP' })
+		.then((response) => {
+			if (response.status === 'success') {
+				document.getElementById('generatedCode').textContent = response.otp; // Display the OTP
+			} else {
+				document.getElementById('generatedCode').textContent =
+					response.message + 'error 204'; // Display error message
+			}
+		})
+		.catch((error) => {
+			document.getElementById('generatedCode').textContent = 'Error: ' + error;
+		});
+});
