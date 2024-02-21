@@ -1,0 +1,30 @@
+MACOS:
+
+chmod +x mfa-server-macos
+
+./mfa-server-macos
+
+--------------------------------------------
+
+WINDOWS:
+
+mfa-server-win.exe
+
+--------------------------------------------
+
+LINUX:
+
+chmod +x mfa-server-linux
+
+./mfa-server-linux
+
+
+--------------------------------------------
+
+TEST:
+
+curl -X POST http://localhost:4000/generate-totp \
+-H "Content-Type: application/json" \
+-d '{"auth":"YOUR_SECRET_KEY_HERE"}'
+
+--------------------------------------------

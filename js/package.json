@@ -1,19 +1,31 @@
 {
-	"name": "js",
-	"version": "1.0.0",
+	"name": "mfa-server",
+	"version": "0.0.1",
 	"description": "",
-	"main": "index.js",
+	"main": "MFA.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "nodemon MFA.js"
+		"dev": "nodemon MFA.js",
+		"start": "nodemon MFA.js",
+		"pkg": "pkg ."
+	},
+	"bin": "MFA.js",
+	"pkg": {
+		"targets": [
+			"node14-win-x64",
+			"node14-linux-x64",
+			"node14-macos-x64"
+		]
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@types/node": "^20.11.19",
 		"express": "^4.18.2",
-		"nodemon": "^3.0.3",
 		"otplib": "^12.0.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.19",
+		"nodemon": "^3.0.3"
 	}
 }
