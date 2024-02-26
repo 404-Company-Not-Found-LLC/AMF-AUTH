@@ -1,0 +1,6 @@
+curl -X POST http://127.0.0.1:7000/generate-totp \
+    -H 'Content-Type: application/json' \
+    -d '{"secret":"secretcode"}'
+
+
+curl http://127.0.0.1:7000/test
